@@ -6,7 +6,7 @@
 }
 
 body {
-    background: #0a0a0a;
+    background: #132a13;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -22,6 +22,7 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column; 
+    height: 100dvh;
 }
 
 #map {
@@ -38,17 +39,22 @@ body {
     font-size: 18px;
 }
 
-#bottom-bar {
+.bottom-bar {
     padding: 15px;
     text-align: center;
 }
 
-#bottom-bar button {
-    width: 90%;
+.bottom-bar .btn {
+    width: 20%;
     padding: 15px;
     font-size: 16px;
-    background: #c688eb;
+    background: #90a955;
     color: white;
     border: none;
     border-radius: 12px;
+}
+
+.bottom-bar :hover{
+        background: #4f772d;
+
 }
