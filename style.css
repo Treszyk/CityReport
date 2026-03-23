@@ -4,7 +4,7 @@
   --border: rgba(255, 255, 255, 0.15);
   --accent: #fff;
   --primary: #90a955;
-  --text-accent: #c688eb;
+  --text-accent: #90a955;
   --muted: #a1a1a1;
   --safe-bottom: env(safe-area-inset-bottom);
   --safe-top: env(safe-area-inset-top);
