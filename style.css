@@ -1,9 +1,10 @@
 :root {
   --primary: #90a955;
   --bg: #132a13;
+  --bg-gradient: radial-gradient(circle at 50% 0%, #1a3a1a 0%, #0d1a0d 80%);
   --accent: #c688eb;
   --hover: #4f772d;
-  --header-bg: rgba(19, 42, 19, 0.9);
+  --header-bg: rgba(19, 42, 19, 0.8);
 }
 
 * {
@@ -14,25 +15,36 @@
 }
 
 body {
-    background-color: var(--bg);
+    background: var(--bg-gradient);
     color: white;
     height: 100dvh;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
-#nagłówek {
+header {
     background: var(--header-bg);
-    padding: 20px;
+    backdrop-filter: blur(10px);
+    padding: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
-    color: var(--accent);
 }
 
-#nagłówek h1 {
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+header h1 {
     font-weight: 800;
     font-size: 2rem;
     letter-spacing: -1px;
 }
+
+.text-accent { color: var(--accent); }
 
 .content {
     flex: 1;
@@ -52,14 +64,14 @@ body {
     border: 2px dashed rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     color: rgba(255, 255, 255, 0.6);
+    gap: 12px;
 }
 
-#photo-preview-container img {
+.preview-img {
     width: 100%;
-    max-height: 300px;
-    object-fit: cover;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
 #map-section {
@@ -74,42 +86,55 @@ body {
     padding: 8px 12px;
     border-radius: 8px;
     font-size: 0.85rem;
-    align-self: flex-start;
+    align-self: center;
 }
 
 #map {
-    height: 300px;
+    height: 350px;
     width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     overflow: hidden;
 }
 
 .bottom-bar {
     padding: 24px;
-    background: rgba(0, 0, 0, 0.2);
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(5, 5, 5, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .btn {
     background: var(--primary);
     color: white;
-    padding: 16px 32px;
+    width: 100%;
+    padding: 16px;
     border-radius: 14px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+    font-weight: 600;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     cursor: pointer;
     transition: all 0.2s ease;
-    font-weight: 600;
 }
 
 .btn:hover {
     background: var(--hover);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#share-section {
+    width: 100%;
 }
 
 .d-none { display: none !important; }
+
+#offline-badge {
+    color: #ff4d4d;
+}
