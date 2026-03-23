@@ -6,6 +6,8 @@ const mapSection = document.getElementById("map-section");
 const shareSection = document.getElementById("share-section");
 const shareBtn = document.getElementById("share-btn");
 
+let currentCoords = null;
+let currentPhoto = null;
 let map = null;
 
 cameraInput.addEventListener("change", (e) => {
