@@ -3,7 +3,7 @@
 
 CityReport to aplikacja stworzona do szybkiego zgłaszania codziennych problemów w mieście. 
 
-| Imię   | Nazwisko | Nr albumu   |
-|--------|------|----------|
-| Kamila    | Łopatowska   | 231171   |
-| Patryk   | Sowiński   | 231263 |
+| Imię   | Nazwisko | Nr albumu   | Nr Grupy|
+|--------|------|----------|--------|
+| Kamila    | Łopatowska   | 231171   | ZIISS1-3612IO|
+| Patryk   | Sowiński   | 231263 | ZIISS1-3612IO|
