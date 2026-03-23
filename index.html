@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>CityReport</title>
     <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icons/icon-192.png" />
     <meta name="theme-color" content="#132a13">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,31 +14,51 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header class="fade-in">
         <div class="header-content">
             <h1>City<span class="text-accent">Report</span></h1>
-            <div id="offline-badge" class="d-none"><i data-lucide="wifi-off"></i></div>
+            <div id="offline-badge" class="offline-icon d-none" title="Brak połączenia">
+                <i data-lucide="wifi-off" size="20"></i>
+            </div>
         </div>
     </header>
 
-    <div class="content">
-        <div id="camera-placeholder">
-            <i data-lucide="camera" size="26"></i>
-            <p>Zrób zdjęcie zgłoszenia</p>
+    <div class="content fade-in">
+        <div id="camera-placeholder" style="width: 100%">
+            <div class="icon-wrapper">
+                <i data-lucide="camera" size="26"></i>
+            </div>
+            <p class="placeholder-title">Gotowy na zgłoszenie?</p>
+            <p class="subtitle">Zrób zdjęcie, aby kontynuować</p>
         </div>
-        <div id="photo-preview-container" class="d-none">
+
+        <div id="map-section" class="d-none" style="width: 100%">
+            <div class="section-label-container">
+                <p class="section-label">Lokalizacja</p>
+                <p id="coords-text"></p>
+            </div>
+            <div id="map-container">
+                <div id="map-loader" class="spinner-overlay d-none">
+                    <div class="spinner"></div>
+                    <p>Ładowanie mapy...</p>
+                </div>
+                <div id="map"></div>
+            </div>
+        </div>
+
+        <div id="photo-preview-container" class="d-none" style="width: 100%; margin-top: 20px">
+            <div class="section-label-container">
+                <p class="section-label">Zdjęcie</p>
+                <p class="section-subtitle">Podgląd zdjęcia</p>
+            </div>
             <img id="photo-preview" src="" alt="Podgląd" class="preview-img">
-        </div>
-        <div id="map-section" class="d-none">
-            <p id="coords-text"></p>
-            <div id="map"></div>
         </div>
     </div>
 
     <div class="bottom-bar">
         <label for="camera-input" id="camera-btn-label" class="btn">
             <i data-lucide="camera" size="20"></i>
-            <span>Zrób zdjęcie</span>
+            <span>Otwórz aparat</span>
         </label>
         <input type="file" id="camera-input" accept="image/*" capture="camera" class="d-none">
 
@@ -45,6 +66,9 @@
             <button id="share-btn" class="btn">
                 <i data-lucide="share-2" size="20"></i>
                 <span>Udostępnij</span>
+            </button>
+            <button id="cancel-btn" class="btn btn-secondary">
+                Anuluj
             </button>
         </div>
     </div>
